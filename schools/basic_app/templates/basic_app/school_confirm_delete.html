@@ -1,0 +1,15 @@
+{% extends "basic_app/basic_app_base.html" %}
+{% block body_block %}
+
+<!-- This is asking if they want to delete the school -->
+<h1>Delete {{school.name}}?</h1>
+<form method="post">
+  {% csrf_token %}
+  <input type="submit" class="btn btn-danger" value="Delete">
+  
+  <!-- This gives the option to cancel the deletion and return to the Details page -->
+  <a href="{% url 'basic_app:detail' pk=school.pk %}">Cancel</a>
+
+</form>
+
+{% endblock %}
